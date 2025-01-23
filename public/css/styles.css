@@ -1,0 +1,83 @@
+body {
+  font-family: "Nunito", serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  flex-grow: 1;
+}
+/* navbar */
+
+.navbar {
+  background-color: white;
+  min-height: 5rem;
+}
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+nav a {
+  color: black !important;
+}
+
+/* footer */
+.footer {
+  height: 8rem;
+  padding: 1.5rem;
+  margin: 2rem;
+  text-align: center;
+  border-top: 0.1px solid black;
+  background-color: rgb(244, 241, 241);
+}
+.social-media,
+.trademark {
+  margin-bottom: 0.25rem;
+}
+.social-media i {
+  font-size: 1.35rem;
+  margin-right: 0.5rem;
+}
+.footer-additionals a {
+  text-decoration: none;
+  color: black;
+}
+.footer-additionals a:hover {
+  text-decoration: underline;
+}
+
+/* listing cards styling */
+.card {
+  border: none !important;
+  padding: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  height: 17.5rem !important;
+  width: 100% !important;
+  border-radius: 1rem !important;
+  object-fit: cover !important;
+}
+.card-body {
+  padding: 0px !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  background-color: white;
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+}
+
+/* add and edit listing new.ejs and edit.ejs */
+.new-listing-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}

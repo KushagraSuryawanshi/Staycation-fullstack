@@ -81,3 +81,10 @@ nav a {
     background-color: #fe424d !important;
     border: none !important;
 }
+
+/* show.ejs */
+
+.show-btns{
+    display: flex;
+    gap: 1rem;
+}

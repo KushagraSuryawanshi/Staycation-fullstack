@@ -4,7 +4,12 @@
     <div class="col-md-8 offset-md-2 col-10 offset-1">
       <h3>Create New Listing</h3>
 
-      <form method="POST" action="/listings">
+      <form
+        method="POST"
+        action="/listings"
+        class="needs-validation"
+        novalidate
+      >
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -12,7 +17,10 @@
             class="form-control"
             name="listing[title]"
             placeholder="e.g., Cozy Apartment in Melbourne"
+            required
           />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a title.</div>
         </div>
 
         <div class="mb-3">
@@ -22,7 +30,10 @@
             class="form-control"
             id=""
             placeholder="Write a brief description of the listing, including features and amenities."
+            required
           ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a description.</div>
         </div>
 
         <div class="mb-3">
@@ -33,16 +44,23 @@
             name="listing[image]"
             placeholder="Paste the URL/Link of an image"
           />
+          <div class="valid-feedback">
+            <div class="text-warning">If no URL is provided, a default custom image will be used.</div>
+
+          </div>
+
         </div>
         <div class="row">
           <div class="mb-3 col-sm-4">
             <label for="price" class="form-label">Price</label>
             <input
-              type="number"
               class="form-control"
               name="listing[price]"
               placeholder="e.g., 1000"
+              required
             />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a valid price.</div>
           </div>
           <div class="mb-3 col-sm-8">
             <label for="country" class="form-label">Country</label>
@@ -51,7 +69,10 @@
               class="form-control"
               name="listing[country]"
               placeholder="e.g., Australia"
+              required
             />
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please provide a country.</div>
           </div>
         </div>
 
@@ -62,7 +83,10 @@
             class="form-control"
             name="listing[location]"
             placeholder="e.g., St. Kilda, Melbourne"
+            required
           />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a location.</div>
         </div>
 
         <button type="submit" class="btn btn-dark new-listing-btn">

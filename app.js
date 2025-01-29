@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const mongoUrl = "mongodb://127.0.0.1:27017/staycation";
 const Listing = require("./models/listing.js");
+const Review = require("./models/review.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
@@ -114,6 +115,18 @@ app.delete(
     res.redirect("/listings");
   })
 );
+
+//Review Route
+app.post("/listings/:id/reviews", async (req, res) => {
+  let id = req.params.id;
+  let listing = await Listing.findById(id);
+  let review = new Review(req.body.review);
+
+  listing.reviews.push(review);
+
+  review.save();
+  listing.save();
+});
 
 // app.get("/testListing", async (req, res) => {
 //   let newListing = new Listing({

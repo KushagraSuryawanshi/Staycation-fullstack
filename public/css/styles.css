@@ -47,7 +47,7 @@ nav a {
 }
 
 /* listing cards styling */
-.card {
+.listing-card {
   border: none !important;
   padding: none !important;
   margin-bottom: 2rem;

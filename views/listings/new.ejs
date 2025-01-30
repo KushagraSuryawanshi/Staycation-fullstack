@@ -45,15 +45,16 @@
             placeholder="Paste the URL/Link of an image"
           />
           <div class="valid-feedback">
-            <div class="text-warning">If no URL is provided, a default custom image will be used.</div>
-
+            <div class="text-warning">
+              If no URL is provided, a default custom image will be used.
+            </div>
           </div>
-
         </div>
         <div class="row">
           <div class="mb-3 col-sm-4">
             <label for="price" class="form-label">Price</label>
             <input
+              type="number"
               class="form-control"
               name="listing[price]"
               placeholder="e.g., 1000"

@@ -10,6 +10,9 @@ const ExpressError = require("./utilities/ExpressError.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
 
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
@@ -47,6 +50,12 @@ const sessionOptions = {
 
 app.use(session(sessionOptions));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get("/", (req, res) => {
   res.send("root path");
@@ -56,6 +65,16 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   next();
+});
+
+app.use("/demouser", async (req, res) => {
+  let demoUser = new User({
+    email: "kush@hotmail.com",
+    username: "kush",
+  });
+
+  let regUser = await User.register(demoUser, "helloAlan");
+  res.send(regUser);
 });
 
 app.use("/listings", listings);
